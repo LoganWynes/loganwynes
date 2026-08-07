@@ -178,17 +178,18 @@
   <h1><span class="yr">2001–2003 Suzuki</span>GSX-R600</h1>
   <p class="lede">A <strong>2002 GSX-R600 with 3,300 miles</strong> stripped down to the frame. Every part below is <strong>already off the bike, cleaned, and ready to hand over.</strong> Local pickup in Golden — I can meet around the Denver metro for the bigger stuff.</p>
   <dl class="specstrip">
-    <div><dt>Parts listed</dt><dd id="s-count">13</dd></div>
+    <div><dt>Parts listed</dt><dd id="s-count">25</dd></div>
     <div><dt>Brand new</dt><dd>3</dd></div>
     <div><dt>Odometer</dt><dd>3,300</dd></div>
-    <div class="hot"><dt>From</dt><dd>$20</dd></div>
+    <div class="hot"><dt>From</dt><dd>$10</dd></div>
   </dl>
 </header>
 
 <nav class="bar" aria-label="Filter parts">
-  <button class="chip" aria-pressed="true" data-f="all">All 13</button>
+  <button class="chip" aria-pressed="true" data-f="all">All 25</button>
+  <button class="chip" aria-pressed="false" data-f="plastics">Bodywork</button>
+  <button class="chip" aria-pressed="false" data-f="big">Pickup only</button>
   <button class="chip" aria-pressed="false" data-f="new">New in box</button>
-  <button class="chip" aria-pressed="false" data-f="used">Used OEM</button>
   <button class="chip" aria-pressed="false" data-f="cheap">Under $50</button>
   <button class="chip" aria-pressed="false" data-f="engine">Engine &amp; fuel</button>
   <button class="chip" aria-pressed="false" data-f="chassis">Chassis &amp; controls</button>
@@ -200,6 +201,7 @@
 <footer class="foot">
   <h2>How to grab something</h2>
   <p>Message me on Facebook with the part name and I'll confirm it's still here. Cash on pickup. Prices are firm-ish — take a couple of parts together and I'll work with you.</p>
+  <p><strong>Bodywork deal:</strong> plastics are $10 apiece, or <strong>$50 for all six</strong> — upper fairing, both side fairings, tail section, front fender and seat cowl. The wheel, seats and tank are pickup only; they're too bulky to ship at any sane price.</p>
   <p>Everything fits 2001, 2002 and 2003 GSX-R600. Several pieces cross over to the same-generation GSX-R750 — ask if you're not sure and I'll check the part number against yours.</p>
   <p class="fine">Sold as-is, no returns. Used electrical parts were pulled from a running bike but I can't warranty them once they leave. Part numbers are listed so you can verify fitment against your own before you drive out.</p>
 </footer>
@@ -210,7 +212,10 @@
 </div>
 
 <script>
-const U = id => `https://i.ebayimg.com/images/g/${id}/s-l1600.jpg`;
+/* Photos are either a local file under images/ or an eBay image ID. */
+const isLocal = s => s.indexOf('images/') === 0;
+const U = s => isLocal(s) ? s : `https://i.ebayimg.com/images/g/${s}/s-l1600.jpg`;
+const FULL = s => isLocal(s) ? s.replace(/\.jpg$/, '-full.jpg') : U(s);
 
 const PARTS = [
   { t:"Intake Throttle Body Manifold", p:200, c:"used", g:["engine"],
@@ -277,6 +282,68 @@ const PARTS = [
     d:"Woodcraft rearset shift lever with linkage. Aluminum.",
     pn:"Woodcraft · rear",
     i:["lUkAAeSwIvJqdVHH","m4kAAeSwt99qdVHH","5I8AAeSw0hNqdVHH"] },
+
+  { t:"Front Forks with Triple Clamps", p:50, c:"used", g:["chassis","big"],
+    d:"Complete front end: both fork legs, upper and lower triple clamps, and the steering stem with bearings. Tubes are straight and unpitted. Seals are weeping and need replacing — priced with that in mind.",
+    pn:"S330-00 · seals need replacing · pickup only",
+    i:["images/front-forks-1.jpg","images/front-forks-2.jpg"] },
+
+  { t:"Swingarm", p:30, c:"used", g:["chassis","big"],
+    d:"Aluminum rear swingarm with the chain slider and both chain adjusters still on it. Scuffs and shop dirt, no cracks or bends.",
+    pn:"Rear · slider included · pickup only",
+    i:["images/swingarm-1.jpg","images/swingarm-2.jpg"] },
+
+  { t:"Rear Shock", p:30, c:"used", g:["chassis","big"],
+    d:"OEM rear shock with the linkage arm and dog bones attached. Holds pressure and isn't weeping oil. Original 3,300-mile unit, so treat it as a used shock, not a rebuilt one.",
+    pn:"S335-00 · linkage included",
+    i:["images/rear-shock-1.jpg","images/rear-shock-2.jpg"] },
+
+  /* ---- Local pickup only: too big to ship ---- */
+
+  { t:"Front Wheel with Tire & Rotors", p:50, c:"used", g:["chassis","big"],
+    d:"Gold front wheel with both brake rotors still mounted and a Bridgestone Battlax BT003 Racing tire. Tire holds air and has usable tread. Wheel spins true.",
+    pn:"Front · dual rotors · pickup only",
+    i:["images/front-wheel-1.jpg","images/front-wheel-2.jpg","images/front-wheel-3.jpg"] },
+
+  { t:"Rider & Passenger Seats", p:20, c:"used", g:["chassis","big"],
+    d:"$20 each or take both. Rider seat has contrast stitching and is in good shape; passenger seat shows normal wear. Pans and hardware intact on both.",
+    pn:"$20 each · pickup only",
+    i:["images/seats-1.jpg"] },
+
+  { t:"Fuel Tank — Green", p:20, c:"used", g:["engine","big"],
+    d:"Green tank with a carbon-look tank pad. Cap and lock present. Some scuffs and dings in the paint — see photo. Ideal for a repaint or a track bike.",
+    pn:"Pickup only",
+    i:["images/fuel-tank-1.jpg"] },
+
+  { t:"Upper Fairing with Headlight & Screen", p:10, c:"used", g:["plastics","big"],
+    d:"Black upper fairing with the headlight assembly and dark screen still fitted. Scuffs and a chip at the lower edge. $10, or take all six plastics for $50.",
+    pn:"Plastics · $50 takes all six",
+    i:["images/fairing-upper-1.jpg","images/fairing-upper-2.jpg"] },
+
+  { t:"Right Side Fairing — Red/White", p:10, c:"used", g:["plastics","big"],
+    d:"Red, white and black lower side fairing with SUZUKI and GSX-R graphics. Scratches throughout and a crack below the decal. $10, or all six plastics for $50.",
+    pn:"Right side · $50 takes all six",
+    i:["images/fairing-right-red-1.jpg"] },
+
+  { t:"Left Side Fairing — Black", p:10, c:"used", g:["plastics","big"],
+    d:"Dark side fairing panel, unpainted finish. Scratched and scuffed but not cracked through. $10, or all six plastics for $50.",
+    pn:"Left side · $50 takes all six",
+    i:["images/fairing-left-1.jpg"] },
+
+  { t:"Tail Section", p:10, c:"used", g:["plastics","big"],
+    d:"Black rear tail section. Heavy road rash down one side with paint worn through — solid enough to mount, rough enough that it wants a respray. $10, or all six plastics for $50.",
+    pn:"Rear · damaged · $50 takes all six",
+    i:["images/tail-section-1.jpg"] },
+
+  { t:"Front Fender", p:10, c:"used", g:["plastics","big"],
+    d:"Black front fender. Light scratches and a few paint specks, no cracks. $10, or all six plastics for $50.",
+    pn:"Front · $50 takes all six",
+    i:["images/front-fender-1.jpg","images/front-fender-2.jpg"] },
+
+  { t:"Rear Seat Cowl", p:10, c:"used", g:["plastics","big"],
+    d:"Black seat cowl to close off the passenger seat. Minor scuffs and paint flecks. $10, or all six plastics for $50.",
+    pn:"Rear · $50 takes all six",
+    i:["images/seat-cowl-1.jpg"] },
 ];
 
 const grid = document.getElementById('grid');
@@ -325,7 +392,7 @@ PARTS.forEach((part, n) => {
     setPhoto(0);
   }
 
-  img.addEventListener('click', () => openLb(U(part.i[idx]), part.t));
+  img.addEventListener('click', () => openLb(FULL(part.i[idx]), part.t));
 
   const body = document.createElement('div');
   body.className = 'body';
